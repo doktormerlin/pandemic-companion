@@ -9,4 +9,6 @@
     <string name="radio_btn_red">Rot</string>
     <string name="radio_btn_blue">Blau</string>
     <string name="radio_btn_yellow">Gelb</string>
+    <string name="txt_dice_amount">Rot: %d Blau: %d Gelb: %d</string>
+    <string name="radio_btn_red">Rot</string>
 </resources>

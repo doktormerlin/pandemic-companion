@@ -13,6 +13,8 @@
     <string name="txt_placeholder" translatable="false">placeholder</string>
     <string name="radio_btn_default_color">Default color</string>
     <string name="radio_btn_red">Red</string>
-    <string name="radio_btn_blue">Blue</string>
-    <string name="radio_btn_yellow">Yellow</string>
+    <string name="radio_btn_blue">Blue: %d</string>
+    <string name="radio_btn_yellow">Yellow: %d</string>
+    <string name="txt_dice_amount">Red: %d Blue: %d Yellow: %d</string>
+    <string name="radio_btn_red">Red: %d</string>
 </resources>

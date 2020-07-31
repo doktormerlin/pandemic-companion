@@ -1,49 +1,56 @@
 package de.mdrone.pandemic_companion.ui.cities
 
-import kotlin.properties.Delegates
-
-class City(var defaultColor: Int) {
-    var redDice: Int = 0
-    var yellowDice: Int  = 0
-    var blueDice: Int  = 0
+class City(val name: String, val defaultColor: Int) {
+    var dice: MutableMap<Int, Int> = mapOf(RED to 0, BLUE to 0, YELLOW to 0)
+            as MutableMap<Int, Int>
+    var neighbors: MutableList<City> = mutableListOf<City>()
 
     companion object {
-        var totalRedDice: Int  = 16
-        var totalBlueDice: Int  = 16
-        var totalYellowDice: Int  = 16
         const val RED = 1
         const val BLUE = 2
         const val YELLOW = 3
+        var totalDice: MutableMap<Int, Int> = mapOf(RED to 16, BLUE to 16, YELLOW to 16)
+                as MutableMap<Int, Int>
     }
 
-    private fun getDiceSum(total_dice: Int, amount: Int): Int {
-        return if (total_dice - amount < 0){
-            total_dice
+    private fun getDiceSum(dice: Int, amount: Int): Int {
+        return if (dice - amount < 0){
+            dice
         } else {
             amount
         }
     }
 
-    private fun addRedDice(amount: Int){
-        totalRedDice -= amount
-        redDice += amount
+
+    private fun sumOfDice(): Int{
+        return (dice.map{it.value}.sum())
     }
 
-    private fun addYellowDice(amount: Int){
-        totalYellowDice -= amount
-        yellowDice += amount
+    fun addDice(color: Int, amount: Int){
+        var colour = 0
+        colour = if(color == 0) defaultColor else color
+        val realAmount: Int = getDiceSum(totalDice[colour]!!, amount)
+        dice[colour] = dice[colour]!! + realAmount
+        totalDice[colour] = totalDice[colour]!! - realAmount
     }
 
-    private fun addBlueDice(amount: Int){
-        totalBlueDice -= amount
-        blueDice += amount
+    fun subtractDice(color: Int, amount: Int){
+        var colour = 0
+        colour = if(color == 0) defaultColor else color
+        val realAmount: Int = getDiceSum(dice[colour]!!, amount)
+        dice[colour] = dice[colour]!! - realAmount
+        totalDice[colour] = totalDice[colour]!! + realAmount
     }
 
-    fun addDice(color: String, amount: Int){
-        when(color){
-            "red" -> addRedDice(getDiceSum(totalRedDice, amount))
-            "blue" -> addBlueDice(getDiceSum(totalBlueDice, amount))
-            "yellow" -> addYellowDice(getDiceSum(totalYellowDice, amount))
-        }
+    fun removeAllDice(color: Int){
+        var colour = 0
+        colour = if(color == 0) defaultColor else color
+        val subtraction = dice[colour]!!
+        dice[colour] = 0
+        totalDice[colour] = totalDice[colour]!! + subtraction
+    }
+
+    fun addNeighbor(city: City){
+        neighbors.add(city)
     }
 }
