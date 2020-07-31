@@ -1,4 +1,4 @@
-package de.mdrone.pandemic_companion.ui.notifications
+package de.mdrone.pandemic_companion.ui.medicine
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import de.mdrone.pandemic_companion.R
 
-class NotificationsFragment : Fragment() {
+class MedicineFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var medicineViewModel: MedicineViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        medicineViewModel =
+                ViewModelProviders.of(this).get(MedicineViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_medicine, container, false)
+        val textView: TextView = root.findViewById(R.id.text_medicine)
+        medicineViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

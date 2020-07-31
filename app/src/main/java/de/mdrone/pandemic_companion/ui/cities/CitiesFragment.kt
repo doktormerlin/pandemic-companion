@@ -1,4 +1,4 @@
-package de.mdrone.pandemic_companion.ui.dashboard
+package de.mdrone.pandemic_companion.ui.cities
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import de.mdrone.pandemic_companion.R
 
-class DashboardFragment : Fragment() {
+class CitiesFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var citiesViewModel: CitiesViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        citiesViewModel =
+                ViewModelProviders.of(this).get(CitiesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_cities, container, false)
+        val textView: TextView = root.findViewById(R.id.text_cities)
+        citiesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
