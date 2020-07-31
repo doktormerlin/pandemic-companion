@@ -3,4 +3,16 @@
     <string name="title_cities">Cities</string>
     <string name="title_medicine">Medicine</string>
     <string name="title_about">About</string>
+    <string name="btn_minus_3" translatable="false">-3</string>
+    <string name="btn_minus_1" translatable="false">-1</string>
+    <string name="btn_plus_1" translatable="false">+1</string>
+    <string name="btn_plus_3" translatable="false">+3</string>
+    <string name="txt_placeholder_city_name" translatable="false">placeholder_city_name</string>
+    <string name="txt_placeholder_dices" translatable="false">placeholder_dices</string>
+    <string name="btn_remove_all">Remove all</string>
+    <string name="txt_placeholder" translatable="false">placeholder</string>
+    <string name="radio_btn_default_color">Default color</string>
+    <string name="radio_btn_red">Red</string>
+    <string name="radio_btn_blue">Blue</string>
+    <string name="radio_btn_yellow">Yellow</string>
 </resources>

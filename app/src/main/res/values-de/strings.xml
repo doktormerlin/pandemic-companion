@@ -4,4 +4,9 @@
     <string name="title_cities">Städte</string>
     <string name="title_medicine">Heilmittel</string>
     <string name="title_about">Über</string>
+    <string name="btn_remove_all">Alle entfernen</string>
+    <string name="radio_btn_default_color">Standardfarbe</string>
+    <string name="radio_btn_red">Rot</string>
+    <string name="radio_btn_blue">Blau</string>
+    <string name="radio_btn_yellow">Gelb</string>
 </resources>
